@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME</H3> EZHIL NEVEDHA K
+<H3>ENTER YOUR REGISTER NO.</H3> 212223230055
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE</H3> 28.04.2025
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,38 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df=pd.read_csv('churn_modelling.csv')
+print(df)
+x=df.iloc[:,:-1].values
+print(x)
+y=df.iloc[:,:-1].values
+print(y)
+print(df.isnull().sum())
+df.fillna(df.mean().round(1),inplace=True)
+print(df.isnull().sum())
+y=df.iloc[:,-1].values
+print(y)
+df.duplicated()
+print(df['EstimatedSalary'].describe())
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(df[['EstimatedSalary']]),columns=['EstimatedSalary'])
+print(df1)
+X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(len(X_train))
+print(X_test)
+print(len(X_test))
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+<img width="680" height="541" alt="image" src="https://github.com/user-attachments/assets/645cd9b8-933c-493e-9026-e684518a18fc" />
+
 
 
 ## RESULT:
